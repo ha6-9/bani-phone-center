@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎯 مركز باني فون - اربح ويانه!</title>
+  <title>🎯 مركز باني فون - شارك واربح!</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
 
     body {
       font-family: 'Cairo', sans-serif;
-      background: radial-gradient(circle at top, #fff4f4 0%, #e8f5e9 100%);
+      background: linear-gradient(to bottom right, #e3f2fd, #fff3e0);
       margin: 0;
       padding: 0;
       text-align: center;
@@ -17,11 +17,11 @@
     }
 
     .header {
-      background-color: #00bfa5;
+      background-color: #009688;
       color: white;
       padding: 25px;
       font-size: 2.4rem;
-      border-bottom: 5px solid #4db6ac;
+      border-bottom: 5px solid #00796b;
       animation: slideInTop 1s ease;
     }
 
@@ -58,13 +58,13 @@
     }
 
     .game-area button {
-      font-size: 22px;
-      margin-top: 20px;
-      padding: 14px 35px;
-      background-color: #00bfa5;
+      font-size: 20px;
+      margin-top: 15px;
+      padding: 12px 30px;
+      background-color: #009688;
       color: #fff;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s;
     }
@@ -75,8 +75,8 @@
     }
 
     #result {
-      font-size: 24px;
-      margin-top: 25px;
+      font-size: 22px;
+      margin-top: 20px;
       color: #1b5e20;
       min-height: 40px;
     }
@@ -101,6 +101,20 @@
       content: '🎁 ';
     }
 
+    .rules {
+      margin-top: 30px;
+      background: #fff8e1;
+      padding: 20px;
+      border-radius: 15px;
+      color: #6d4c41;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      text-align: right;
+    }
+
+    .rules ul {
+      padding-right: 20px;
+    }
+
     .share-btn {
       background-color: #25D366;
       color: white;
@@ -120,64 +134,110 @@
   </style>
 </head>
 <body>
-  <div class="header">🎉 مركز باني فون – اربح ويانه! 🎉</div>
-
+  <div class="header">🎉 مركز باني فون – شارك واربح! 🎉</div>
+  
+ 
   <div class="game-area">
-    <img src="https://cdn-icons-png.flaticon.com/512/3565/3565418.png" alt="gift" />
-    <p>اضغط الزر حتى تكشف الجائزة الترويجية من مركز باني فون! 🎁</p>
-    <button onclick="playGame()">🎮 جرب حظك!</button>
+<img src="https://imgur.com/Ky3WDo4.jpg" alt="Baniphone Logo" />
+
+
+
+    <p>📌 أدخل اسمك ورقمك، وطبق الشروط صح 🎯</p>
+    <input type="text" id="userName" placeholder="اسمك" style="padding:10px; width:80%; border-radius:10px; margin-bottom:10px;"><br>
+    <input type="text" id="userPhone" placeholder="رقم الهاتف" style="padding:10px; width:80%; border-radius:10px;"><br>
+    <button onclick="loginAndPlay()">🎮 تسجيل الدخول وجرّب!</button>
     <div id="result"></div>
     <button class="share-btn" onclick="shareOnWhatsApp()" style="display:none" id="shareBtn">📤 شارك على واتساب</button>
+  </div>
+
+  <div class="rolus">
+    <h3>📌 شروط المشاركة:</h3>
+    <ul>
+      <li>✅ يجب إدخال الاسم ورقم الهاتف الصحيح.</li>
+      <li>✅ محاولة واحدة فقط لكل شخص في اليوم.</li>
+      <li>✅ يجب مشاركة المنشور ومنشن 3 أصدقاء.</li>
+      <li>❗ في حال إدخال رقم خاطئ، لا تُسلّم الجائزة.</li>
+      <li>🎁 الفائز يحصل على رقم تسلسلي لتسلُّم جائزته.</li>
+    </ul>
   </div>
 
   <div class="offers">
     <p>🔥 عروضنا الحالية من مركز <strong>باني فون</strong>:</p>
     <ul>
-      <li>خصم 25% على صيانة الشاشة</li>
-      <li>هدايا مجانية مع كل عملية شراء</li>
-      <li>حماية مجانية عند تنزيل النظام</li>
-      <li>تركيب حماية شاشة مجاني</li>
+      
+      <li>ارقام مميزة _ خطوط خدمة _عروض مميزة _ صيانة</li>
+      
     </ul>
-    📍 الموقع: الكرادة – مقابل مول الجوهرة<br>
-    📞 للاستفسار: 0770 000 0000
+    📍  عنواننا : كربلاء - حي العامل - المنطقة الثالثة - قرب جامع الغدير<br>
+    📞 07816988877
   </div>
 
   <footer>
-    تصميم وتطوير ❤️ بواسطة مركز باني فون © 2025
+     تصميم وتطوير ❤️ بواسطة مركز باني فون © Eng. Hussein Alzamily 
   </footer>
 
   <audio id="winSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_f68b0b9e61.mp3?filename=success-fanfare-trumpets-6185.mp3"></audio>
 
   <script>
     const prizes = [
-      "🥳 خصم 50% على الكفرات!",
-      "📱 غلاف مجاني عند الشراء!",
-      "🧼 تنظيف شامل للهاتف مجاناً!",
+      "🥳 خصم 20% على خط الخدمة الشهري!",
+      "📱 كيبل شحن!",
+      "🧼 هدية داخل المركز!",
       "💥 خصم صيانة + هدية مفاجئة!",
-      "😅 لا شيء اليوم، جرب باجر!",
-      "🎫 بطاقة سحب على جائزة كبرى!"
+      "🎫 خط اسياسيل مع رصيد 12 الف!",
+      "هيدفون",
     ];
 
-    let playedToday = localStorage.getItem('baniphone_played');
-    let serialNumber = Math.floor(Math.random() * 1000000);
+    const maxWinnersPerDay = 5;
+    const today = new Date().toLocaleDateString();
+    let winnersData = JSON.parse(localStorage.getItem('baniphone_winners') || '{}');
 
-    function playGame() {
-      if (playedToday) {
-        document.getElementById("result").textContent = "⚠️ جربت اليوم! ارجع باجر للمحاولة من جديد.";
+    if (localStorage.getItem('baniphone_lastReset') !== today) {
+      winnersData = {};
+      localStorage.setItem('baniphone_winners', '{}');
+      localStorage.setItem('baniphone_lastReset', today);
+    }
+
+    function loginAndPlay() {
+      const name = document.getElementById("userName").value.trim();
+      const phone = document.getElementById("userPhone").value.trim();
+      const userKey = phone;
+;
+
+      if (!name || !phone) {
+        alert("الرجاء إدخال الاسم ورقم الهاتف.");
         return;
       }
 
+      if (!winnersData[today]) {
+        winnersData[today] = [];
+      }
+
+      if (winnersData[today].some(entry => entry.key === userKey)) {
+        document.getElementById("result").textContent = "⛔️ مسموح محاولة وحدة فقط لكل زبون باليوم.";
+        return;
+      }
+
+     if (!winnersData[today]) {
+  winnersData[today] = [];
+}
+ 
       const prize = prizes[Math.floor(Math.random() * prizes.length)];
+      const serialNumber = Math.floor(Math.random() * 1000000);
+
       document.getElementById("result").innerHTML = `🎊 ${prize}<br>🔢 رقم جائزتك: <strong>${serialNumber}</strong>`;
+
       if (!prize.includes("لا شيء")) {
         document.getElementById("winSound").play();
       }
-      localStorage.setItem('baniphone_played', true);
+
+      winnersData[today].push({ key: userKey, name, phone, serial: serialNumber });
+      localStorage.setItem('baniphone_winners', JSON.stringify(winnersData));
       document.getElementById("shareBtn").style.display = "inline-block";
     }
 
     function shareOnWhatsApp() {
-      const message = encodeURIComponent(`🎉 ربحت جائزة من مركز باني فون! رقم الجائزة: ${serialNumber}. جرب حظك انت هم: https://baniphone-game.com`);
+      const message = encodeURIComponent("🎉 شارك بمسابقة مركز باني فون! شارك المنشور ومنشن 3 أصدقاء وجرّب حظك 🎯: https://baniphone-game.com");
       window.open(`https://wa.me/?text=${message}`, '_blank');
     }
   </script>
